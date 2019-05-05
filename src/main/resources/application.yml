@@ -1,24 +1,25 @@
 micronaut:
   application:
     name: micronaut-openwhisk-jpa-sample
-  datasources:
-    default:
-      url: ${JDBC_URL:`jdbc:postgresql://baasu.db.elephantsql.com:5432/tcfzblyo;DB_CLOSE_ON_EXIT=FALSE`}
-      username: ${JDBC_USER:tcfzblyo}
-      password: ${JDBC_PASSWORD:"FYu40IAxBQJu3osSuCM2oV1d4IksZ3vB"}
-      driverClassName: ${JDBC_DRIVER:org.postgresql.Driver}
-  jpa:
-    default:
-      packages-to-scan:
-        - 'com.ibm.openwhisk.micronaut.jpa.sample'
-      properties:
-        hibernate:
-          hbm2ddl:
-            auto: update
-          show_sql: true
-          jdbc:
-            lob:
-              non_contextual_creation: true
-          temp:
-            use_jdbc_metadata_defaults: false
+datasources:
+  default:
+    name: prod
+    url: jdbc:postgresql://baasu.db.elephantsql.com:5432/tcfzblyo;DB_CLOSE_ON_EXIT=FALSE
+    username: tcfzblyo
+    password: FYu40IAxBQJu3osSuCM2oV1d4IksZ3vB
+    driverClassName: org.postgresql.Driver
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.ibm.openwhisk.micronaut.jpa.sample'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
 

@@ -18,9 +18,9 @@ public class OpenWhiskBootstrap {
 
     }
 
-    public static JsonObject main(JsonObject args, ClassLoader cl) throws Exception {
+    public static JsonObject main(JsonObject args, ClassLoader cl)  {
         String[] args1 = {};
-        ApplicationContext ac = Micronaut.build(args1).packages("com.ibm.openwhisk.micronaut.jpa.sample").classLoader(cl).start();
+        ApplicationContext ac = Micronaut.build(args1).classes(BaseOWFunction.class, GenreRepositoryImpl.class, javax.persistence.EntityManager.class).classLoader(cl).start();
 //        JsonObject response = new JsonObject();
         BaseOWFunction bow = ac.getBean(BaseOWFunction.class);
         JsonObject response = bow.execute(args);

@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: micronaut.openwhisk.jpa.sample
+---
+testFramework: junit
+sourceLanguage: java

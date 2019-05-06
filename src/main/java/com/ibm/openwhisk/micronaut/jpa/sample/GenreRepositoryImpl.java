@@ -2,9 +2,11 @@ package com.ibm.openwhisk.micronaut.jpa.sample;
 
 import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
+import org.hibernate.jpa.HibernateEntityManagerFactory;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +20,8 @@ public class GenreRepositoryImpl implements GenreRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+
     private final ApplicationConfiguration applicationConfiguration;
 
     public GenreRepositoryImpl(@CurrentSession EntityManager entityManager,

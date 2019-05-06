@@ -4,7 +4,7 @@ micronaut:
 datasources:
   default:
     name: prod
-    url: jdbc:postgresql://baasu.db.elephantsql.com:5432/tcfzblyo;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:postgresql://baasu.db.elephantsql.com:5432/tcfzblyo
     username: tcfzblyo
     password: FYu40IAxBQJu3osSuCM2oV1d4IksZ3vB
     driverClassName: org.postgresql.Driver
@@ -15,11 +15,12 @@ jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: none
         show_sql: true
         jdbc:
           lob:
             non_contextual_creation: true
         temp:
           use_jdbc_metadata_defaults: false
-
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+testprop: hellothere
